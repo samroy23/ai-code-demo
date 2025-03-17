@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Service Agent - Dark Theme</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #bb86fc;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: 100%;
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+      border: 1px solid #333;
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 16px;
+      resize: vertical;
+    }
+    button {
+      background-color: #bb86fc;
+      color: #121212;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #9a67ea;
+    }
+    #response {
+      margin-top: 20px;
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 4px;
+      border: 1px solid #333;
+    }
+    .feedback-buttons {
+      margin-top: 10px;
+    }
+    .thumb {
+      font-size: 24px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Customer Service Agent</h1>
+  <form id="queryForm">
+    <textarea id="query" placeholder="Enter your customer query here..." rows="5"></textarea><br>
+    <button type="submit">Submit Query</button>
+  </form>
+  <div id="response"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

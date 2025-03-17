@@ -1,0 +1,5 @@
+flask==2.3.3
+flask-cors==4.0.0
+python-dotenv==1.0.0
+azure-ai-vision==0.15.1b1
+openai==0.28.1
