@@ -1,7 +1,17 @@
 [
   {
-    "query": "What is your return policy?",
+    "query": "what is the return policy\n",
     "response": "You can return any item within 30 days of purchase with a receipt.",
     "feedback": "positive"
+  },
+  {
+    "query": "I need immediate assistance with my order; it is urgent !\n",
+    "response": "Your query has been marked as urgent. A support agent will contact you immediately.",
+    "feedback": "negative"
+  },
+  {
+    "query": "give me assistance on return policy in my order? it is urgent\n",
+    "response": "Your query has been marked as urgent. A support agent will contact you immediately.",
+    "feedback": "negative"
   }
 ]
