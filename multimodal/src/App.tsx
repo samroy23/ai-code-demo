@@ -146,6 +146,12 @@ function App() {
       }
 
       //TODO 1: Initialize the SpeechRecognition object here wih continuous listening and interim results enabled.
+      const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+      const recognition = new SpeechRecognition();
+
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
 
 
       // Add user message placeholder for transcription
@@ -160,6 +166,19 @@ function App() {
       recognition.onresult = (event) => {
 
         //TODO 2: Extract and update the transcribed text from speech recognition results.
+        const transcript = Array.from(event.results)
+        .map(result => result[0])
+        .map(result => result.transcript)
+        .join('');
+
+        // Update the last message with current transcript
+      setMessages(prev => 
+        prev.map((msg, idx) => 
+            idx === prev.length - 1 && msg.isVoice 
+              ? { ...msg, content: transcript, isProcessing: false } 
+              : msg
+        )
+      );
         
        
         setInput(transcript);
@@ -202,6 +221,19 @@ function App() {
   };
 
   // TODO 3: Implement text-to-speech functionality using SpeechSynthesisUtterance.
+  const speakText = (text: string) => {
+    if ('speechSynthesis' in window) {
+       // Stop any ongoing speech
+       window.speechSynthesis.cancel();
+       
+       const utterance = new SpeechSynthesisUtterance(text);
+       utterance.onstart = () => setIsSpeaking(true);
+       utterance.onend = () => setIsSpeaking(false);
+       utterance.onerror = () => setIsSpeaking(false);
+       
+       window.speechSynthesis.speak(utterance);
+    }
+  };
   
 
   const stopSpeaking = () => {
